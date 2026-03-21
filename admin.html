@@ -153,6 +153,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);mi
       <button class="admin-tab" onclick="switchTab('desserts')">🍰 Desserts</button>
       <button class="admin-tab" onclick="switchTab('plus')">➕ Petits +</button>
       <button class="admin-tab" onclick="switchTab('promo')">📢 Promo</button>
+      <button class="admin-tab" onclick="switchTab('veille')">💤 Veille</button>
     </div>
 
     <!-- SEMAINE -->
@@ -231,6 +232,39 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);mi
       </div>
     </div>
 
+
+    <!-- VEILLE -->
+    <div class="tab-content" id="tab-veille">
+      <div class="promo-card">
+        <h3>Écran de veille</h3>
+        <div class="toggle-row">
+          <div>
+            <div class="toggle-label">Activer l'écran de veille</div>
+            <div class="toggle-sub">Affiche un écran après inactivité</div>
+          </div>
+          <label class="toggle">
+            <input type="checkbox" id="ss-active" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <div class="field-group" style="margin-top:16px">
+          <label>Délai d'inactivité (minutes)</label>
+          <input type="number" id="ss-timeout" value="2" min="1" max="60" style="max-width:120px">
+        </div>
+        <div class="field-group" style="margin-top:12px">
+          <label>Texte promotionnel affiché</label>
+          <textarea id="ss-promo-text" rows="3" placeholder="Ex: Découvrez nos plats frais préparés chaque semaine !">Découvrez nos plats frais préparés chaque semaine</textarea>
+        </div>
+      </div>
+
+      <div class="promo-card">
+        <h3 style="margin-bottom:16px">Images promotionnelles</h3>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Ajoutez des URLs d'images qui défileront en arrière-plan. Si aucune image, fond vert uni.</p>
+        <div id="ss-slides-list" style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px"></div>
+        <button class="btn btn-green" onclick="addSSSlide()" style="width:100%">+ Ajouter une image</button>
+      </div>
+    </div>
+
   </div>
 
   <div class="save-bar">
@@ -303,6 +337,12 @@ function loadData() {
   document.getElementById('promo-title').value = data.promo.title || '';
   document.getElementById('promo-percent').value = data.promo.percent || '';
   document.getElementById('promo-sub').value = data.promo.sub || '';
+  // Screensaver
+  var ss = data.screensaver || {active:true,timeout:2,promoText:'Découvrez nos plats frais préparés chaque semaine',slides:[]};
+  document.getElementById('ss-active').checked = ss.active !== false;
+  document.getElementById('ss-timeout').value = ss.timeout || 2;
+  document.getElementById('ss-promo-text').value = ss.promoText || '';
+  renderSSSlides(ss.slides || []);
 }
 
 function collectData() {
@@ -311,6 +351,12 @@ function collectData() {
   data.promo.title = document.getElementById('promo-title').value;
   data.promo.percent = document.getElementById('promo-percent').value;
   data.promo.sub = document.getElementById('promo-sub').value;
+  data.screensaver = {
+    active: document.getElementById('ss-active').checked,
+    timeout: parseInt(document.getElementById('ss-timeout').value) || 2,
+    promoText: document.getElementById('ss-promo-text').value,
+    slides: Array.from(document.querySelectorAll('.ss-slide-input')).map(function(i){return i.value;}).filter(Boolean)
+  };
   ['entrees','plats','desserts','plus'].forEach(function(cat) {
     var cards = document.querySelectorAll('#list-'+cat+' .item-card');
     data[cat] = [];
@@ -447,6 +493,27 @@ function showToast(msg) {
   t.textContent = msg;
   t.classList.add('show');
   setTimeout(function(){ t.classList.remove('show'); }, 3000);
+}
+
+function renderSSSlides(slides){
+  var list = document.getElementById('ss-slides-list');
+  list.innerHTML = '';
+  slides.forEach(function(url, i){
+    addSSSlideRow(url);
+  });
+}
+
+function addSSSlide(url){
+  addSSSlideRow(url||'');
+}
+
+function addSSSlideRow(url){
+  var list = document.getElementById('ss-slides-list');
+  var row = document.createElement('div');
+  row.style.cssText = 'display:flex;gap:8px;align-items:center;';
+  row.innerHTML = '<input type="text" class="ss-slide-input" placeholder="https://... URL de l\'image" value="'+url+'" style="flex:1;padding:10px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;font-family:DM Sans,sans-serif;outline:none;">'+
+    '<button onclick="this.parentElement.remove()" style="padding:8px 12px;background:var(--danger);color:var(--red);border:none;border-radius:8px;cursor:pointer;font-size:16px;flex-shrink:0;">✕</button>';
+  list.appendChild(row);
 }
 </script>
 </body>
