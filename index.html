@@ -99,6 +99,26 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-seri
 .sav-email-txt{font-family:'DM Mono',monospace;font-size:13px;font-weight:600;color:var(--green);display:block;margin-bottom:6px;word-break:break-all;}
 .sav-contact-box small{font-size:12px;color:var(--text-muted);}
 .sav-close-btn{position:absolute;top:14px;right:14px;width:34px;height:34px;background:rgba(255,255,255,0.2);color:white;border:none;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+
+/* ── SCREENSAVER ── */
+.screensaver{position:fixed;inset:0;z-index:2000;background:var(--green);display:none;flex-direction:column;align-items:center;justify-content:space-between;cursor:pointer;overflow:hidden;}
+.screensaver.active{display:flex;}
+.ss-slides{position:absolute;inset:0;z-index:0;}
+.ss-slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;background-size:cover;background-position:center;}
+.ss-slide.active{opacity:1;}
+.ss-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,74,5,0.3) 0%, rgba(0,20,2,0.7) 100%);z-index:1;}
+.ss-content{position:relative;z-index:2;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:60px 40px 50px;}
+.ss-logo-area{display:flex;flex-direction:column;align-items:center;gap:20px;margin-top:40px;}
+.ss-logo{height:90px;width:auto;mix-blend-mode:screen;filter:brightness(2);}
+.ss-tagline{color:rgba(255,255,255,0.85);font-family:'DM Sans',sans-serif;font-size:16px;letter-spacing:3px;text-transform:uppercase;text-align:center;}
+.ss-promo-text{color:white;font-family:'Playfair Display',serif;font-size:36px;font-weight:700;text-align:center;line-height:1.3;text-shadow:0 2px 20px rgba(0,0,0,0.5);max-width:600px;}
+.ss-cta{display:flex;flex-direction:column;align-items:center;gap:12px;}
+.ss-cta-btn{background:white;color:var(--green);padding:16px 48px;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:18px;font-weight:700;letter-spacing:1px;box-shadow:0 4px 24px rgba(0,0,0,0.3);animation:ctapulse 2s infinite;}
+@keyframes ctapulse{0%,100%{transform:scale(1);box-shadow:0 4px 24px rgba(0,0,0,0.3);}50%{transform:scale(1.04);box-shadow:0 8px 32px rgba(0,0,0,0.4);}}
+.ss-cta small{color:rgba(255,255,255,0.6);font-size:12px;letter-spacing:2px;text-transform:uppercase;}
+.ss-dots{display:flex;gap:8px;}
+.ss-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.3);transition:.3s;}
+.ss-dot.active{background:white;width:24px;border-radius:4px;}
 </style>
 </head>
 <body>
@@ -312,14 +332,127 @@ function goTo(id,tab){
 }
 
 window.addEventListener('DOMContentLoaded',function(){
+  resetSSTimer();
   renderMenu();
   var el=document.getElementById('sav-email-display');
   if(el){el.textContent='contact'+'\u0040'+'lacuisinedejeanine.fr';}
+});
+
+
+
+// ── SCREENSAVER ──
+var SS_TIMEOUT = 2 * 60 * 1000; // 2 minutes
+var ssTimer = null;
+var ssSlideTimer = null;
+var ssCurrentSlide = 0;
+
+var DEFAULT_SCREENSAVER = {
+  active: true,
+  timeout: 2,
+  promoText: 'Découvrez nos plats frais préparés chaque semaine',
+  slides: []
+};
+
+function getSSData(){
+  var d = getData();
+  return d.screensaver || DEFAULT_SCREENSAVER;
+}
+
+function buildScreensaver(){
+  var ss = getSSData();
+  if(!ss.active) return;
+  var slides = ss.slides && ss.slides.length > 0 ? ss.slides : [];
+  var container = document.getElementById('ss-slides');
+  var dotsEl = document.getElementById('ss-dots');
+  container.innerHTML = '';
+  dotsEl.innerHTML = '';
+  if(slides.length === 0){
+    // default green background
+    var def = document.createElement('div');
+    def.className = 'ss-slide active';
+    def.style.background = 'var(--green)';
+    container.appendChild(def);
+    dotsEl.innerHTML = '<div class="ss-dot active"></div>';
+  } else {
+    slides.forEach(function(src, i){
+      var s = document.createElement('div');
+      s.className = 'ss-slide' + (i===0?' active':'');
+      s.style.backgroundImage = 'url('+src+')';
+      container.appendChild(s);
+      var dot = document.createElement('div');
+      dot.className = 'ss-dot' + (i===0?' active':'');
+      dotsEl.appendChild(dot);
+    });
+  }
+  document.getElementById('ss-promo-text').textContent = ss.promoText || '';
+  SS_TIMEOUT = (ss.timeout || 2) * 60 * 1000;
+}
+
+function showScreensaver(){
+  buildScreensaver();
+  document.getElementById('screensaver').classList.add('active');
+  startSlideshow();
+}
+
+function dismissScreensaver(){
+  document.getElementById('screensaver').classList.remove('active');
+  clearInterval(ssSlideTimer);
+  resetSSTimer();
+}
+
+function startSlideshow(){
+  clearInterval(ssSlideTimer);
+  ssCurrentSlide = 0;
+  ssSlideTimer = setInterval(function(){
+    var slides = document.querySelectorAll('.ss-slide');
+    var dots = document.querySelectorAll('.ss-dot');
+    if(slides.length <= 1) return;
+    slides[ssCurrentSlide].classList.remove('active');
+    dots[ssCurrentSlide].classList.remove('active');
+    ssCurrentSlide = (ssCurrentSlide + 1) % slides.length;
+    slides[ssCurrentSlide].classList.add('active');
+    dots[ssCurrentSlide].classList.add('active');
+  }, 4000);
+}
+
+function resetSSTimer(){
+  clearTimeout(ssTimer);
+  var ss = getSSData();
+  if(!ss.active) return;
+  SS_TIMEOUT = (ss.timeout || 2) * 60 * 1000;
+  ssTimer = setTimeout(showScreensaver, SS_TIMEOUT);
+}
+
+// Start idle detection
+['click','touchstart','touchmove'].forEach(function(ev){
+  document.addEventListener(ev, function(){
+    if(!document.getElementById('screensaver').classList.contains('active')){
+      resetSSTimer();
+    }
+  });
 });
 
 window.addEventListener('storage',function(e){
   if(e.key==='jeanine_menu') renderMenu();
 });
 </script>
+
+<!-- SCREENSAVER -->
+<div class="screensaver" id="screensaver" onclick="dismissScreensaver()">
+  <div class="ss-slides" id="ss-slides"></div>
+  <div class="ss-overlay"></div>
+  <div class="ss-content">
+    <div class="ss-logo-area">
+      <div class="ss-tagline">Bienvenue chez</div>
+    </div>
+    <div class="ss-promo-text" id="ss-promo-text"></div>
+    <div class="ss-cta">
+      <div class="ss-dots" id="ss-dots"></div>
+      <div class="ss-cta-btn">Touchez pour afficher le menu</div>
+      <small>Menu de la semaine disponible</small>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
