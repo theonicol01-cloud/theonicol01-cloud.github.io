@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — La Cuisine de Jeanine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; font-family: 'Work Sans', sans-serif; background: #fbf8f2; }
+    a { color: #004a05; text-decoration: none; }
+    a:hover { color: #0b6b0d; }
+    * { box-sizing: border-box; }
+  </style>
+</helmet>
+
+<div style="font-family:'Work Sans',sans-serif;color:#3a2a1c;background:#fbf8f2;overflow-x:hidden">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(251,248,242,0.92);backdrop-filter:blur(6px);border-bottom:1px solid rgba(0,74,5,0.1)">
+    <div style="max-width:1240px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+      <a href="Accueil.dc.html" style="display:flex;align-items:center;gap:10px">
+        <img src="assets/logo-texte-vert.png" alt="La Cuisine de Jeanine" style="height:48px;width:auto;display:block">
+      </a>
+      <nav style="display:flex;gap:28px;flex-wrap:wrap;font-size:15px;font-weight:500">
+        <a href="Accueil.dc.html" style="color:#3a2a1c">Accueil</a>
+        <a href="Solutions.dc.html" style="color:#3a2a1c">Nos Solutions</a>
+        <a href="A-Propos.dc.html" style="color:#3a2a1c">À Propos</a>
+        <a href="Contact.dc.html" style="color:#004a05">Contact</a>
+      </nav>
+      <a href="Contact.dc.html" style="background:#004a05;color:#fbf8f2;padding:11px 22px;border-radius:100px;font-size:14px;font-weight:600;white-space:nowrap">Demander un devis</a>
+    </div>
+  </header>
+
+  <section style="max-width:1240px;margin:0 auto;padding:64px 32px 40px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px">
+    <div>
+      <div style="color:#004a05;font-weight:600;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px">Contact</div>
+      <h1 style="font-family:'Bitter',serif;font-weight:600;font-size:38px;margin:0 0 20px;color:#1f3a1f">Parlons de votre projet</h1>
+      <p style="font-size:16px;line-height:1.65;color:#5a4b3c;margin:0 0 32px">Notre équipe est à votre écoute pour étudier vos besoins et vous proposer la solution la plus adaptée.</p>
+      <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:36px">
+        <div><div style="font-size:13px;color:#8a6a3a;font-weight:600;text-transform:uppercase;letter-spacing:0.04em">Email</div><a href="mailto:contact@lacuisinedejeanine.fr" style="font-size:16px;color:#1f3a1f;font-weight:500">contact@lacuisinedejeanine.fr</a></div>
+        <div><div style="font-size:13px;color:#8a6a3a;font-weight:600;text-transform:uppercase;letter-spacing:0.04em">Téléphone</div><div style="font-size:16px;color:#1f3a1f;font-weight:500">06 66 69 92 71</div></div>
+        <div><div style="font-size:13px;color:#8a6a3a;font-weight:600;text-transform:uppercase;letter-spacing:0.04em">Zone d'intervention</div><div style="font-size:16px;color:#1f3a1f;font-weight:500">Seine-Maritime (76)</div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:#5a4b3c">
+        <div>✓ Étude personnalisée gratuite</div>
+        <div>✓ Réponse sous 24h</div>
+        <div>✓ Devis détaillé sans engagement</div>
+        <div>✓ Conseils d'experts</div>
+      </div>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(0,74,5,0.14);border-radius:20px;padding:40px">
+      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center;padding:40px 0">
+          <div style="font-family:'Bitter',serif;font-size:22px;color:#1f3a1f;margin-bottom:10px">Message envoyé !</div>
+          <div style="font-size:15px;color:#5a4b3c">Merci pour votre demande. Notre équipe vous répondra dans les meilleurs délais.</div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:16px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <input placeholder="Nom" style="padding:13px 16px;border:1px solid rgba(0,74,5,0.2);border-radius:10px;font-size:15px;font-family:inherit"></input>
+            <input placeholder="Prénom *" required="" style="padding:13px 16px;border:1px solid rgba(0,74,5,0.2);border-radius:10px;font-size:15px;font-family:inherit"></input>
+          </div>
+          <input placeholder="Entreprise *" required="" style="padding:13px 16px;border:1px solid rgba(0,74,5,0.2);border-radius:10px;font-size:15px;font-family:inherit"></input>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <input placeholder="Email *" required="" type="email" style="padding:13px 16px;border:1px solid rgba(0,74,5,0.2);border-radius:10px;font-size:15px;font-family:inherit"></input>
+            <input placeholder="Téléphone" style="padding:13px 16px;border:1px solid rgba(0,74,5,0.2);border-radius:10px;font-size:15px;font-family:inherit"></input>
+          </div>
+          <input placeholder="Objet du message" style="padding:13px 16px;border:1px solid rgba(0,74,5,0.2);border-radius:10px;font-size:15px;font-family:inherit"></input>
+          <textarea placeholder="Message" rows="4" style="padding:13px 16px;border:1px solid rgba(0,74,5,0.2);border-radius:10px;font-size:15px;font-family:inherit;resize:vertical"></textarea>
+          <button type="submit" style="background:#004a05;color:#fbf8f2;padding:15px;border:none;border-radius:10px;font-weight:600;font-size:15px;cursor:pointer;margin-top:6px">Envoyer ma demande</button>
+        </form>
+      </sc-if>
+    </div>
+  </section>
+
+  <footer style="background:#004a05;color:#d8e3d3;padding:64px 32px 32px">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:48px">
+        <div>
+          <img src="assets/logo-complet-blanc.png" alt="La Cuisine de Jeanine" style="height:56px;width:auto;display:block;margin-bottom:16px">
+          <p style="font-size:14px;line-height:1.6;color:#a9c0a4;max-width:280px">Le traiteur nouvelle génération pour les entreprises. Cantine digitale et prestations sur-mesure en Seine-Maritime.</p>
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:14px;color:#fbf8f2;margin-bottom:16px">Navigation</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+            <a href="Accueil.dc.html" style="color:#a9c0a4">Accueil</a>
+            <a href="Solutions.dc.html" style="color:#a9c0a4">Nos Solutions</a>
+            <a href="A-Propos.dc.html" style="color:#a9c0a4">À Propos</a>
+            <a href="Contact.dc.html" style="color:#a9c0a4">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:14px;color:#fbf8f2;margin-bottom:16px">Contact</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:#a9c0a4;margin-bottom:16px">
+            <div>contact@lacuisinedejeanine.fr</div>
+            <div>Seine-Maritime (76)</div>
+          </div>
+          <div style="display:flex;gap:14px">
+            <a href="https://www.linkedin.com/company/la-cuisine-de-jeanine" style="color:#a9c0a4;font-size:13px;border:1px solid rgba(255,255,255,0.25);padding:6px 12px;border-radius:100px">LinkedIn</a>
+            <a href="https://www.facebook.com/p/La-Cuisine-de-Jeanine-61559807420124/" style="color:#a9c0a4;font-size:13px;border:1px solid rgba(255,255,255,0.25);padding:6px 12px;border-radius:100px">Facebook</a>
+            <a href="https://www.instagram.com/lacuisinedejeanine/" style="color:#a9c0a4;font-size:13px;border:1px solid rgba(255,255,255,0.25);padding:6px 12px;border-radius:100px">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,0.15);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#7fa079">
+        <div>© 2026 La Cuisine de Jeanine. Tous droits réservés.</div>
+        <div style="display:flex;gap:20px;flex-wrap:wrap">
+          <a href="Mentions-Legales.dc.html" style="color:#7fa079">Mentions légales</a>
+          <a href="Mentions-Legales.dc.html#confidentialite" style="color:#7fa079">Politique de confidentialité</a>
+          <a href="Mentions-Legales.dc.html#cgu" style="color:#7fa079">CGU</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { submitted: false };
+
+  onSubmit(e) {
+    e.preventDefault();
+    this.setState({ submitted: true });
+  }
+
+  renderVals() {
+    return {
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      onSubmit: (e) => this.onSubmit(e)
+    };
+  }
+}
+</script>
+</body>
+</html>

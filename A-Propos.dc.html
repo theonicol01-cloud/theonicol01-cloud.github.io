@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>À Propos — La Cuisine de Jeanine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="./image-slot.js"></script>
+  <style>
+    body { margin: 0; font-family: 'Work Sans', sans-serif; background: #fbf8f2; }
+    a { color: #004a05; text-decoration: none; }
+    a:hover { color: #0b6b0d; }
+    * { box-sizing: border-box; }
+  </style>
+  <template id="__bundler_thumbnail" data-bg-color="#004a05">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" fill="#004a05"></rect>
+      <text x="50" y="60" font-family="Georgia, serif" font-size="46" font-weight="700" fill="#fbf8f2" text-anchor="middle">J</text>
+    </svg>
+  </template>
+</helmet>
+
+<div style="font-family:'Work Sans',sans-serif;color:#3a2a1c;background:#fbf8f2;overflow-x:hidden">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(251,248,242,0.92);backdrop-filter:blur(6px);border-bottom:1px solid rgba(0,74,5,0.1)">
+    <div style="max-width:1240px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+      <a href="Accueil.dc.html" style="display:flex;align-items:center;gap:10px">
+        <img src="assets/logo-texte-vert.png" alt="La Cuisine de Jeanine" style="height:48px;width:auto;display:block">
+      </a>
+      <nav style="display:flex;gap:28px;flex-wrap:wrap;font-size:15px;font-weight:500">
+        <a href="Accueil.dc.html" style="color:#3a2a1c">Accueil</a>
+        <a href="Solutions.dc.html" style="color:#3a2a1c">Nos Solutions</a>
+        <a href="A-Propos.dc.html" style="color:#004a05">À Propos</a>
+        <a href="Contact.dc.html" style="color:#3a2a1c">Contact</a>
+      </nav>
+      <a href="Contact.dc.html" style="background:#004a05;color:#fbf8f2;padding:11px 22px;border-radius:100px;font-size:14px;font-weight:600;white-space:nowrap">Demander un devis</a>
+    </div>
+  </header>
+
+  <section style="max-width:1240px;margin:0 auto;padding:64px 32px 20px;display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:center">
+    <div style="border-radius:24px;overflow:hidden;aspect-ratio:4/5">
+      <image-slot id="histoire-portrait" shape="rect" src="assets/photos/jeanine.jpg" placeholder="Photo, Jeanine"></image-slot>
+    </div>
+    <div>
+      <div style="color:#004a05;font-weight:600;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px">À propos</div>
+      <h1 style="font-family:'Bitter',serif;font-weight:600;font-size:38px;margin:0 0 20px;color:#1f3a1f">Notre histoire, notre passion</h1>
+      <p style="font-size:16px;line-height:1.7;color:#5a4b3c;margin:0 0 18px">Entreprise familiale avant tout, La Cuisine de Jeanine est née d'une passion sincère pour la gastronomie et le goût des bonnes choses. Nous croyons qu'un repas en entreprise doit être un vrai moment de plaisir, de partage et de qualité.</p>
+      <p style="font-size:16px;line-height:1.7;color:#5a4b3c;margin:0 0 18px">Il était une fois deux cousins passionnés de gastronomie, convaincus que la restauration d'entreprise méritait mieux que des plats industriels réchauffés. Animés par l'envie de proposer une cuisine authentique et généreuse, ils ont décidé de créer une solution qui allie praticité et qualité.</p>
+      <p style="font-size:16px;line-height:1.7;color:#5a4b3c;margin:0 0 28px">Jeanine, notre grand-mère commune, nous a transmis l'amour du produit, le respect des recettes et le goût du travail bien fait. Son héritage est au cœur de chaque plat que nous proposons aujourd'hui. Nous accompagnons désormais les entreprises de Seine-Maritime avec la même exigence, la même passion et la même volonté d'apporter du bon dans le quotidien des collaborateurs.</p>
+      <div style="border-left:3px solid #004a05;padding-left:20px;display:flex;gap:16px;align-items:flex-start">
+        <img src="assets/icons/amour-du-geste.svg" alt="" style="height:36px;width:auto;flex-shrink:0">
+        <div>
+        <p style="font-family:'Bitter',serif;font-style:italic;font-size:18px;color:#1f3a1f;margin:0">« On apprend la cuisine avec celle des autres… à un moment donné on fait la sienne. »</p>
+        <div style="font-size:14px;color:#8a6a3a;margin-top:8px">— Jean-François Piège</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1240px;margin:0 auto;padding:96px 32px">
+    <div style="background:#004a05;color:#fbf8f2;border-radius:24px;padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center">
+      <div>
+        <div style="color:#e8d3b0;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:12px">Notre vision</div>
+        <p style="font-size:18px;line-height:1.6;margin:0">Nous croyons que la restauration d'entreprise peut être un véritable levier de performance et de bien-être au travail. Notre vision : faire de chaque pause déjeuner un moment de plaisir et de convivialité, avec des produits sains, savoureux et responsables.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div><div style="font-family:'Bitter',serif;font-size:20px;font-weight:600;margin-bottom:4px">Entreprises locales accompagnées</div><div style="font-size:14px;color:#c7d6c2">Partout en Seine-Maritime</div></div>
+        <div><div style="font-family:'Bitter',serif;font-size:20px;font-weight:600;margin-bottom:4px">Des centaines de repas servis chaque semaine</div><div style="font-size:14px;color:#c7d6c2">Avec la même régularité</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1240px;margin:0 auto;padding:0 32px 100px">
+    <div style="text-align:center;max-width:600px;margin:0 auto 48px">
+      <div style="color:#004a05;font-weight:600;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px">Notre exigence produit</div>
+      <h2 style="font-family:'Bitter',serif;font-weight:600;font-size:32px;margin:0;color:#1f3a1f">Le bon, sans compromis</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px">
+      <div style="background:#fff;border:1px solid rgba(0,74,5,0.14);border-radius:18px;padding:32px">
+        <img src="assets/icons/produits-frais.svg" alt="" style="height:34px;width:auto;margin-bottom:12px">
+        <div style="font-weight:600;font-size:17px;margin-bottom:8px;color:#1f3a1f">Produits frais</div>
+        <div style="font-size:14px;color:#5a4b3c;line-height:1.55">Sélection rigoureuse de produits frais auprès de nos fournisseurs.</div>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(0,74,5,0.14);border-radius:18px;padding:32px">
+        <img src="assets/icons/group-1.svg" alt="" style="height:34px;width:auto;margin-bottom:12px">
+        <div style="font-weight:600;font-size:17px;margin-bottom:8px;color:#1f3a1f">Viandes françaises</div>
+        <div style="font-size:14px;color:#5a4b3c;line-height:1.55">Nos viandes proviennent d'élevages français, traçabilité garantie.</div>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(0,74,5,0.14);border-radius:18px;padding:32px">
+        <img src="assets/icons/home-made.svg" alt="" style="height:34px;width:auto;margin-bottom:12px">
+        <div style="font-weight:600;font-size:17px;margin-bottom:8px;color:#1f3a1f">Fait maison</div>
+        <div style="font-size:14px;color:#5a4b3c;line-height:1.55">Nos plats sont préparés dans notre cuisine par nos chefs passionnés.</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1240px;margin:0 auto 100px;padding:0 32px">
+    <div style="background:#e8d3b0;border-radius:24px;padding:56px;text-align:center">
+      <h2 style="font-family:'Bitter',serif;font-weight:600;font-size:30px;margin:0 0 14px;color:#1f3a1f">Offrez à vos collaborateurs une restauration à la hauteur de votre entreprise.</h2>
+      <p style="font-size:16px;color:#5c3d1d;margin:0 0 28px;max-width:560px;margin-left:auto;margin-right:auto">Contactez-nous pour une étude personnalisée et découvrez comment transformer l'expérience repas de vos équipes.</p>
+      <a href="Contact.dc.html" style="display:inline-block;background:#004a05;color:#fbf8f2;padding:15px 30px;border-radius:100px;font-weight:600;font-size:15px">Contactez-nous</a>
+    </div>
+  </section>
+
+  <footer style="background:#004a05;color:#d8e3d3;padding:64px 32px 32px">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:48px">
+        <div>
+          <img src="assets/logo-complet-blanc.png" alt="La Cuisine de Jeanine" style="height:56px;width:auto;display:block;margin-bottom:16px">
+          <p style="font-size:14px;line-height:1.6;color:#a9c0a4;max-width:280px">Le traiteur nouvelle génération pour les entreprises. Cantine digitale et prestations sur-mesure en Seine-Maritime.</p>
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:14px;color:#fbf8f2;margin-bottom:16px">Navigation</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+            <a href="Accueil.dc.html" style="color:#a9c0a4">Accueil</a>
+            <a href="Solutions.dc.html" style="color:#a9c0a4">Nos Solutions</a>
+            <a href="A-Propos.dc.html" style="color:#a9c0a4">À Propos</a>
+            <a href="Contact.dc.html" style="color:#a9c0a4">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:14px;color:#fbf8f2;margin-bottom:16px">Contact</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:#a9c0a4;margin-bottom:16px">
+            <div>contact@lacuisinedejeanine.fr</div>
+            <div>Seine-Maritime (76)</div>
+          </div>
+          <div style="display:flex;gap:14px">
+            <a href="https://www.linkedin.com/company/la-cuisine-de-jeanine" style="color:#a9c0a4;font-size:13px;border:1px solid rgba(255,255,255,0.25);padding:6px 12px;border-radius:100px">LinkedIn</a>
+            <a href="https://www.facebook.com/p/La-Cuisine-de-Jeanine-61559807420124/" style="color:#a9c0a4;font-size:13px;border:1px solid rgba(255,255,255,0.25);padding:6px 12px;border-radius:100px">Facebook</a>
+            <a href="https://www.instagram.com/lacuisinedejeanine/" style="color:#a9c0a4;font-size:13px;border:1px solid rgba(255,255,255,0.25);padding:6px 12px;border-radius:100px">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,0.15);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#7fa079">
+        <div>© 2026 La Cuisine de Jeanine. Tous droits réservés.</div>
+        <div style="display:flex;gap:20px;flex-wrap:wrap">
+          <a href="Mentions-Legales.dc.html" style="color:#7fa079">Mentions légales</a>
+          <a href="Mentions-Legales.dc.html#confidentialite" style="color:#7fa079">Politique de confidentialité</a>
+          <a href="Mentions-Legales.dc.html#cgu" style="color:#7fa079">CGU</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nos Solutions — La Cuisine de Jeanine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="./image-slot.js"></script>
+  <style>
+    body { margin: 0; font-family: 'Work Sans', sans-serif; background: #fbf8f2; }
+    a { color: #004a05; text-decoration: none; }
+    a:hover { color: #0b6b0d; }
+    * { box-sizing: border-box; }
+  </style>
+</helmet>
+
+<div style="font-family:'Work Sans',sans-serif;color:#3a2a1c;background:#fbf8f2;overflow-x:hidden">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(251,248,242,0.92);backdrop-filter:blur(6px);border-bottom:1px solid rgba(0,74,5,0.1)">
+    <div style="max-width:1240px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+      <a href="Accueil.dc.html" style="display:flex;align-items:center;gap:10px">
+        <img src="assets/logo-texte-vert.png" alt="La Cuisine de Jeanine" style="height:48px;width:auto;display:block">
+      </a>
+      <nav style="display:flex;gap:28px;flex-wrap:wrap;font-size:15px;font-weight:500">
+        <a href="Accueil.dc.html" style="color:#3a2a1c">Accueil</a>
+        <a href="Solutions.dc.html" style="color:#004a05">Nos Solutions</a>
+        <a href="A-Propos.dc.html" style="color:#3a2a1c">À Propos</a>
+        <a href="Contact.dc.html" style="color:#3a2a1c">Contact</a>
+      </nav>
+      <a href="Contact.dc.html" style="background:#004a05;color:#fbf8f2;padding:11px 22px;border-radius:100px;font-size:14px;font-weight:600;white-space:nowrap">Demander un devis</a>
+    </div>
+  </header>
+
+  <section style="max-width:1240px;margin:0 auto;padding:64px 32px 40px">
+    <div style="color:#004a05;font-weight:600;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px">Nos solutions</div>
+    <h1 style="font-family:'Bitter',serif;font-weight:600;font-size:44px;margin:0 0 18px;color:#1f3a1f;max-width:760px">Des solutions adaptées à vos besoins</h1>
+    <p style="font-size:17px;line-height:1.65;color:#5a4b3c;margin:0;max-width:640px">Frigo connecté, plateaux repas ou prestations événementielles : découvrez nos offres sur-mesure pour votre entreprise.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px">
+      <a href="#frigo" style="border:1.5px solid #004a05;color:#004a05;padding:10px 20px;border-radius:100px;font-weight:600;font-size:14px">Frigo Connecté</a>
+      <a href="#plateaux" style="border:1.5px solid #004a05;color:#004a05;padding:10px 20px;border-radius:100px;font-weight:600;font-size:14px">Plateaux Repas</a>
+      <a href="#evenements" style="border:1.5px solid #004a05;color:#004a05;padding:10px 20px;border-radius:100px;font-weight:600;font-size:14px">Prestations &amp; Événements</a>
+    </div>
+  </section>
+
+  <section id="frigo" style="background:#004a05;color:#fbf8f2;padding:80px 32px;margin-top:24px">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-bottom:64px">
+        <div>
+          <img src="assets/icons/frigo-connecte.svg" alt="" style="height:40px;width:auto;margin-bottom:14px">
+          <div style="color:#e8d3b0;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:12px">Solution phare</div>
+          <h2 style="font-family:'Bitter',serif;font-weight:600;font-size:34px;margin:0 0 18px">Le Frigo Connecté</h2>
+          <p style="font-size:16px;line-height:1.65;color:#d8e3d3;margin:0 0 24px">La cantine digitale nouvelle génération. Un frigo intelligent installé dans vos locaux, approvisionné quotidiennement en produits frais et plats cuisinés maison.</p>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:15px;color:#d8e3d3;margin-bottom:28px">
+            <div>Accès 24h/24, 7j/7</div>
+            <div>Produits frais renouvelés quotidiennement</div>
+            <div>Paiement par badge ou carte bancaire</div>
+            <div>Installation et maintenance incluses</div>
+            <div>Menu hebdomadaire : chaque semaine, notre chef vous concocte un nouveau menu, 2 entrées, 5 plats, 2 desserts. Fini la routine alimentaire !</div>
+          </div>
+          <a href="Contact.dc.html" style="display:inline-block;background:#e8d3b0;color:#1f3a1f;padding:14px 26px;border-radius:100px;font-weight:600;font-size:15px">Demander un devis</a>
+        </div>
+        <div style="border-radius:20px;overflow:hidden;aspect-ratio:4/3">
+          <image-slot id="frigo-photo" shape="rect" src="assets/photos/frigo-openit.jpg" placeholder="Photo, frigo connecté"></image-slot>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;margin-bottom:64px">
+        <div>
+          <div style="font-family:'Bitter',serif;font-size:32px;font-weight:600;color:#e8d3b0;margin-bottom:10px">01</div>
+          <div style="font-weight:600;margin-bottom:6px">Passez votre carte</div>
+          <div style="font-size:14px;color:#c7d6c2;line-height:1.5">CB ou titre-restaurant. Pré-autorisation, comme à la pompe à essence.</div>
+        </div>
+        <div>
+          <div style="font-family:'Bitter',serif;font-size:32px;font-weight:600;color:#e8d3b0;margin-bottom:10px">02</div>
+          <div style="font-weight:600;margin-bottom:6px">Le frigo s'ouvre</div>
+          <div style="font-size:14px;color:#c7d6c2;line-height:1.5">Choisissez librement parmi tous les produits frais disponibles.</div>
+        </div>
+        <div>
+          <div style="font-family:'Bitter',serif;font-size:32px;font-weight:600;color:#e8d3b0;margin-bottom:10px">03</div>
+          <div style="font-weight:600;margin-bottom:6px">Refermez la porte</div>
+          <div style="font-size:14px;color:#c7d6c2;line-height:1.5">Le frigo détecte vos articles. Débit uniquement de ce que vous prenez.</div>
+        </div>
+        <div>
+          <div style="font-family:'Bitter',serif;font-size:32px;font-weight:600;color:#e8d3b0;margin-bottom:10px">04</div>
+          <div style="font-weight:600;margin-bottom:6px">Profitez !</div>
+          <div style="font-size:14px;color:#c7d6c2;line-height:1.5">Produits frais, cuisinés maison, prêts à déguster.</div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;background:rgba(255,255,255,0.06);border-radius:20px;padding:36px;margin-bottom:40px">
+        <div><div style="font-weight:600;margin-bottom:6px;color:#e8d3b0">Disponibilité</div><div style="font-size:14px;color:#d8e3d3">24h/24, 7j/7</div></div>
+        <div><div style="font-weight:600;margin-bottom:6px;color:#e8d3b0">Paiement</div><div style="font-size:14px;color:#d8e3d3">Carte bancaire ou carte déjeuner</div></div>
+        <div><div style="font-weight:600;margin-bottom:6px;color:#e8d3b0">Qualité</div><div style="font-size:14px;color:#d8e3d3">Produits frais sélectionnés par nos soins</div></div>
+        <div><div style="font-weight:600;margin-bottom:6px;color:#e8d3b0">Fraîcheur</div><div style="font-size:14px;color:#d8e3d3">Livraison tous les matins</div></div>
+      </div>
+
+      <div style="font-size:14px;color:#c7d6c2">Dimensions : hauteur 2200 mm · largeur 948 mm · profondeur 710 mm, connectique Ethernet (RJ45), modem 4G disponible en option.</div>
+    </div>
+  </section>
+
+  <section style="max-width:840px;margin:0 auto;padding:96px 32px 40px">
+    <div style="text-align:center;margin-bottom:48px">
+      <div style="color:#004a05;font-weight:600;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px">Questions fréquentes</div>
+      <h2 style="font-family:'Bitter',serif;font-weight:600;font-size:32px;margin:0;color:#1f3a1f">Le coin des questions / réponses</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <sc-for list="{{ faqItems }}" as="item" hint-placeholder-count="6">
+        <div style="border:1px solid rgba(0,74,5,0.15);border-radius:14px;overflow:hidden;background:#fff">
+          <div onClick="{{ item.onClick }}" style="padding:20px 24px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:16px">
+            <span style="font-weight:600;font-size:16px;color:#1f3a1f">{{ item.q }}</span>
+            <span style="font-family:'Bitter',serif;font-size:20px;color:#004a05;flex-shrink:0">{{ item.sign }}</span>
+          </div>
+          <sc-if value="{{ item.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:0 24px 22px;font-size:15px;line-height:1.6;color:#5a4b3c">{{ item.a }}</div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="plateaux" style="max-width:1240px;margin:0 auto;padding:96px 32px;display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center">
+    <div style="border-radius:20px;overflow:hidden;aspect-ratio:4/3">
+      <image-slot id="plateaux-photo" shape="rect" src="assets/photos/plateau-repas.jpg" placeholder="Photo, plateau repas"></image-slot>
+    </div>
+    <div>
+      <img src="assets/icons/plateau-repas.svg" alt="" style="height:40px;width:auto;margin-bottom:14px">
+      <div style="color:#004a05;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:12px">Livraison quotidienne</div>
+      <h2 style="font-family:'Bitter',serif;font-weight:600;font-size:32px;margin:0 0 16px;color:#1f3a1f">Plateaux Repas</h2>
+      <p style="font-size:16px;line-height:1.65;color:#5a4b3c;margin:0 0 24px">Pas encore équipé d'un frigo connecté ? Notre équipe vous livre des repas complets, équilibrés et savoureux directement dans votre entreprise. Le menu change chaque semaine pour varier les plaisirs.</p>
+      <div style="display:flex;gap:28px;margin-bottom:24px;flex-wrap:wrap">
+        <div><div style="font-family:'Bitter',serif;font-size:24px;font-weight:600;color:#004a05">2</div><div style="font-size:13px;color:#5a4b3c">Entrées au choix</div></div>
+        <div><div style="font-family:'Bitter',serif;font-size:24px;font-weight:600;color:#004a05">5</div><div style="font-size:13px;color:#5a4b3c">Plats au choix</div></div>
+        <div><div style="font-family:'Bitter',serif;font-size:24px;font-weight:600;color:#004a05">2</div><div style="font-size:13px;color:#5a4b3c">Desserts au choix</div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;font-size:15px;color:#5a4b3c;margin-bottom:28px">
+        <div style="display:flex;align-items:center;gap:10px"><img src="assets/icons/home-made.svg" alt="" style="height:24px;width:auto">Fait maison, produits frais et de saison</div>
+        <div style="display:flex;align-items:center;gap:10px"><img src="assets/icons/vegetarien.svg" alt="" style="height:24px;width:auto">Viandes françaises, options végétariennes</div>
+        <div>Gamme snacking et boissons complémentaire</div>
+        <div>Commande avec minimum requis</div>
+      </div>
+      <a href="Contact.dc.html" style="display:inline-block;background:#004a05;color:#fbf8f2;padding:14px 26px;border-radius:100px;font-weight:600;font-size:15px">Demander un devis</a>
+    </div>
+  </section>
+
+  <section id="evenements" style="background:#f2e9d8;padding:96px 32px">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="max-width:640px;margin-bottom:48px">
+        <div style="color:#004a05;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:12px">Sur-mesure</div>
+        <h2 style="font-family:'Bitter',serif;font-weight:600;font-size:32px;margin:0 0 16px;color:#1f3a1f">Prestations &amp; Événements</h2>
+        <p style="font-size:16px;line-height:1.65;color:#5c3d1d;margin:0">Pour vos séminaires, réunions, cocktails ou événements d'entreprise, nous concevons des prestations sur-mesure qui marquent les esprits.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-bottom:40px">
+        <div style="background:#fbf8f2;border-radius:16px;padding:28px"><img src="assets/icons/petit-dej.svg" alt="" style="height:32px;width:auto;margin-bottom:12px"><div style="font-weight:600;font-size:16px;margin-bottom:8px;color:#1f3a1f">Petit-déjeuner &amp; pauses café</div><div style="font-size:14px;color:#5a4b3c;line-height:1.5">Viennoiseries, jus frais, boissons chaudes premium</div></div>
+        <div style="background:#fbf8f2;border-radius:16px;padding:28px"><img src="assets/icons/diner-affaire.svg" alt="" style="height:32px;width:auto;margin-bottom:12px"><div style="font-weight:600;font-size:16px;margin-bottom:8px;color:#1f3a1f">Déjeuners &amp; repas d'affaires</div><div style="font-size:14px;color:#5a4b3c;line-height:1.5">Buffets gourmands ou service à table, adaptés à vos contraintes</div></div>
+        <div style="background:#fbf8f2;border-radius:16px;padding:28px"><img src="assets/icons/cocktail.svg" alt="" style="height:32px;width:auto;margin-bottom:12px"><div style="font-weight:600;font-size:16px;margin-bottom:8px;color:#1f3a1f">Cocktails &amp; réceptions</div><div style="font-size:14px;color:#5a4b3c;line-height:1.5">Canapés, verrines, pièces salées &amp; sucrées</div></div>
+        <div style="background:#fbf8f2;border-radius:16px;padding:28px"><img src="assets/icons/seminaire.svg" alt="" style="height:32px;width:auto;margin-bottom:12px"><div style="font-weight:600;font-size:16px;margin-bottom:8px;color:#1f3a1f">Séminaires &amp; journées d'étude</div><div style="font-size:14px;color:#5a4b3c;line-height:1.5">Offres complètes avec pauses, repas et organisation sur-mesure</div></div>
+      </div>
+      <a href="Contact.dc.html" style="display:inline-block;background:#004a05;color:#fbf8f2;padding:14px 26px;border-radius:100px;font-weight:600;font-size:15px">Demander un devis</a>
+    </div>
+  </section>
+
+  <footer style="background:#004a05;color:#d8e3d3;padding:64px 32px 32px">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:48px">
+        <div>
+          <img src="assets/logo-complet-blanc.png" alt="La Cuisine de Jeanine" style="height:56px;width:auto;display:block;margin-bottom:16px">
+          <p style="font-size:14px;line-height:1.6;color:#a9c0a4;max-width:280px">Le traiteur nouvelle génération pour les entreprises. Cantine digitale et prestations sur-mesure en Seine-Maritime.</p>
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:14px;color:#fbf8f2;margin-bottom:16px">Navigation</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+            <a href="Accueil.dc.html" style="color:#a9c0a4">Accueil</a>
+            <a href="Solutions.dc.html" style="color:#a9c0a4">Nos Solutions</a>
+            <a href="A-Propos.dc.html" style="color:#a9c0a4">À Propos</a>
+            <a href="Contact.dc.html" style="color:#a9c0a4">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:14px;color:#fbf8f2;margin-bottom:16px">Contact</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:#a9c0a4;margin-bottom:16px">
+            <div>contact@lacuisinedejeanine.fr</div>
+            <div>Seine-Maritime (76)</div>
+          </div>
+          <div style="display:flex;gap:14px">
+            <a href="https://www.linkedin.com/company/la-cuisine-de-jeanine" style="color:#a9c0a4;font-size:13px;border:1px solid rgba(255,255,255,0.25);padding:6px 12px;border-radius:100px">LinkedIn</a>
+            <a href="https://www.facebook.com/p/La-Cuisine-de-Jeanine-61559807420124/" style="color:#a9c0a4;font-size:13px;border:1px solid rgba(255,255,255,0.25);padding:6px 12px;border-radius:100px">Facebook</a>
+            <a href="https://www.instagram.com/lacuisinedejeanine/" style="color:#a9c0a4;font-size:13px;border:1px solid rgba(255,255,255,0.25);padding:6px 12px;border-radius:100px">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,0.15);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#7fa079">
+        <div>© 2026 La Cuisine de Jeanine. Tous droits réservés.</div>
+        <div style="display:flex;gap:20px;flex-wrap:wrap">
+          <a href="Mentions-Legales.dc.html" style="color:#7fa079">Mentions légales</a>
+          <a href="Mentions-Legales.dc.html#confidentialite" style="color:#7fa079">Politique de confidentialité</a>
+          <a href="Mentions-Legales.dc.html#cgu" style="color:#7fa079">CGU</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    faqOpen: 0,
+    faqData: [
+      { q: "Comment fonctionne le paiement sur le frigo connecté ?", a: "Vous présentez votre carte bancaire ou carte déjeuner : une pré-autorisation est effectuée, comme à la pompe à essence. Le frigo se déverrouille, vous choisissez vos produits, puis refermez la porte — vous êtes débité uniquement de ce que vous avez pris." },
+      { q: "Comment le frigo détecte-t-il les produits pris ?", a: "Notre frigo détecte automatiquement les produits présents à l'intérieur. La facturation se fait ensuite en toute simplicité, sans action supplémentaire de votre part." },
+      { q: "Quelle connectivité est nécessaire ?", a: "Nos frigos sont équipés d'une prise Ethernet (RJ45) et, si nécessaire, peuvent être complétés d'un modem 4G pour s'adapter à leur futur emplacement." },
+      { q: "Qui s'occupe de la maintenance et du réapprovisionnement ?", a: "Notre fournisseur assure la maintenance et le service technique de l'équipement. Le nettoyage des frigos et la livraison des produits sont assurés tous les matins pour garantir fraîcheur et qualité." },
+      { q: "Proposez-vous des options végétariennes ?", a: "Oui, nos plateaux repas et notre frigo connecté proposent systématiquement des options végétariennes en plus de la gamme classique." },
+      { q: "Quelle est votre zone d'intervention ?", a: "Nous intervenons dans toute la Seine-Maritime (76). Contactez-nous pour vérifier la disponibilité sur votre secteur." }
+    ]
+  };
+
+  toggleFaq(i) {
+    this.setState(s => ({ faqOpen: s.faqOpen === i ? -1 : i }));
+  }
+
+  renderVals() {
+    const faqItems = this.state.faqData.map((f, i) => ({
+      q: f.q,
+      a: f.a,
+      open: this.state.faqOpen === i,
+      sign: this.state.faqOpen === i ? "–" : "+",
+      onClick: () => this.toggleFaq(i)
+    }));
+    return { faqItems };
+  }
+}
+</script>
+</body>
+</html>
